@@ -1,10 +1,12 @@
 PyGeo
 =====
 
+### Problem Statement 
+
 A Python package for three-dimensional geometry.
 
 
-Installation
+#### Installation
 ------------
 
 Run
@@ -14,7 +16,7 @@ python -m pip install -e ".[dev]"
 to install `pygeo` and all dependencies required for local development.
 
 
-Testing
+#### Testing
 -------
 
 Run
@@ -24,7 +26,7 @@ pytest tests
 to run all the tests for `pygeo`.
 
 
-Tasks
+#### Tasks
 -----
 
 1. Implement the missing `Ray` class. A [ray](https://en.wikipedia.org/wiki/Line_(geometry)#Ray) may be represented as its origin and a direction.
@@ -46,3 +48,12 @@ As an optional extra exercise, implement
 1. the missing `Triangle` class,
 1. the missing `_intersect_ray_and_triangle` function and accompanying tests, and
 1. the missing `intersect` that calls either `_intersect_ray_and_sphere` or `_intersect_ray_and_triangle` depending on the arguments.
+-----
+
+
+### Declaration. 
+
+Files modified in ```./src/pygeo``` and ```./tests/```.
+
+
+Code submitted as a part of prerequisite (PVL) of the module "Software tools for computational materials scientists" as a part of the course "Computational Materials Science" during Winter-Semester and Summer-Semester of 2019-2020. 

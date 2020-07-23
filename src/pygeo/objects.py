@@ -3,9 +3,9 @@ import numpy as np
 
 class Point:
     """ Class Point
-        Defines a point in 3-dimensional Euclidean space.
-        Requires a list/tuple/numpy array as input.
-        Methods implemented: Addition, Subtraction, Equality. """
+        Defines a point in 3-dimensional space.
+        Input: point (array/array_like)
+        Methods: Addition, Subtraction, Equality. """
 
     def __init__(self, point):
         self._point = np.array(point, dtype=float)
@@ -36,9 +36,9 @@ class Point:
 
 class Vector:
     """ Class Vector.
-        Defines a vector in 3-dimensional Euclidean space.
-        Requires list/tuple/numpy array as input (components of vector along axes).
-        Methods implemented: Addition, Subtraction, Equality. """
+        Defines a vector in 3-dimensional space.
+        Input: array/array_like, components of vector
+        Methods: Addition, Subtraction, Equality. """
 
     def __init__(self, vector):
         self._vector = np.array(vector, dtype=float)
@@ -64,8 +64,9 @@ class Vector:
 
 class Ray:
     """ Class Ray
-        Requires two lists/tuples/arrays (origin and direction).
-        Methods implemented: Equality. """
+        Inputs (2): origin (origin point of ray, array/array_like),
+        direction (direction components of ray, array/array_like)
+        Methods: Equality. """
     
     def __init__(self, origin, direction):
         self._origin = np.array(origin)
@@ -86,8 +87,8 @@ class Ray:
 
 class Sphere:
     """ Class Sphere
-        Requires list/tuple/numpy array (center) and a float/double/string as input (radius).
-        Methods implemented: Equality. """
+        Inputs (2): center of sphere (array/array_like), radius (a non-negative number)
+        Methods: Equality. """
     def __init__(self, center, radius):
         self._center = np.array(center,dtype=float)
         self._radius = float(radius)

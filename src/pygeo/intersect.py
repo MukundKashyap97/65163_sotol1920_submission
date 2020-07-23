@@ -1,10 +1,13 @@
 from .objects import Point, Ray, Sphere, Triangle
-from numpy import subtract,dot,sqrt,array,all
+from numpy import subtract,dot,sqrt,array
 
 
-def intersect(first_object, second_object):
-    ...
-
+def intersection(first_object, second_object):
+    """ Common method for intersection of objects 
+        Input: first_object, second_object (PyGeo objects) """
+    if isinstance(first_object,Ray) and isinstance(second_object,Sphere):
+        return _intersect_ray_with_sphere(first_object,second_object)
+    return NotImplemented
 
 def _intersect_ray_with_sphere(ray, sphere):
     """ Method to determine intersection of a Ray object and a sphere object.
