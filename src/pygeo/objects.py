@@ -83,7 +83,12 @@ class Sphere:
         self._radius = float(radius)
     def __repr__(self):
         return f"Sphere(Center:{self._center.tolist()}, Radius:{self._radius})"
-
+    def __eq__(self, other):
+        if isinstance(other,Sphere):
+            flag = False
+            if np.array_equal(other._center, self._center) and (other._radius == self._radius):
+                flag = True
+        return flag
 
 class Triangle:
     """A triangle."""
