@@ -3,9 +3,10 @@ import numpy as np
 
 class Point:
     """ Class Point
-        Represents a point in 3-dimensional space
-        Input: point (array/array_like)
-        Methods: Addition, Subtraction, Equality """
+        Defines a point in 3-dimensional Euclidean space.
+        Requires a list/tuple/numpy array as input.
+        Methods implemented: Addition, Subtraction, Equality. """
+
     def __init__(self, point):
         self._point = np.array(point, dtype=float)
 
@@ -35,9 +36,9 @@ class Point:
 
 class Vector:
     """ Class Vector.
-        Defines a vector in 3-dimensional space.
-        Input: Components of vector (array/array_like)
-        Methods: Addition, Subtraction, Equality"""
+        Defines a vector in 3-dimensional Euclidean space.
+        Requires list/tuple/numpy array as input (components of vector along axes).
+        Methods implemented: Addition, Subtraction, Equality. """
 
     def __init__(self, vector):
         self._vector = np.array(vector, dtype=float)
@@ -63,27 +64,30 @@ class Vector:
 
 class Ray:
     """ Class Ray
-        Inputs (2): origin and direction (array/array_like)
-        Methods: Equality """
+        Requires two lists/tuples/arrays (origin and direction).
+        Methods implemented: Equality. """
+    
     def __init__(self, origin, direction):
         self._origin = np.array(origin)
-        self._direction = np.array(direction)
+        if np.array_equal(np.array(direction),np.array([0,0,0])):
+            self._direction = np.array(direction)
+        else:
+            self._direction = np.array(direction)/np.linalg.norm(np.array(direction))
     def __repr__(self):
         return f"Ray(Origin:({self._origin.tolist()}), Direction:[{self._direction.tolist()}]"
-    def __eq__(self, value):
+    def __eq__(self, other):
         if isinstance(other,Ray):
             flag = False
             if np.array_equal(self._origin, other._origin) and np.array_equal(self._direction,other._direction):
                 flag = True
             return flag
-        return NotImplemented
+        return False
 
 
 class Sphere:
     """ Class Sphere
-        Inputs (2): center (array/array_like) and radius (a non-negative number)
-        Methods: Equality """
-
+        Requires list/tuple/numpy array (center) and a float/double/string as input (radius).
+        Methods implemented: Equality. """
     def __init__(self, center, radius):
         self._center = np.array(center,dtype=float)
         self._radius = float(radius)
@@ -95,7 +99,7 @@ class Sphere:
             if np.array_equal(other._center, self._center) and (other._radius == self._radius):
                 flag = True
             return flag
-        return NotImplemented
+        return False
 
 class Triangle:
     """A triangle."""
